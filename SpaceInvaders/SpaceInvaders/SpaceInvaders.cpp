@@ -10,7 +10,7 @@
 #include "LaserCannon.h"
 #include "Laser.h"
 #include "Bunker.h"
-
+#include "Manager.h"
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
@@ -18,14 +18,17 @@ int main()
 	sf::Texture texture;
 	texture.loadFromFile("SpriteSheet.jpg");
 	sf::Texture* point = &texture;
-	std::vector<Laser*> canLas;
-	int x = 0;
 	Object obj(texture);
 	LaserCannon cannon(point);
+	Laser las(point);
+	bool lasAlive = false;
 
 
 	while (window.isOpen())
 	{
+		if (las.offScreen()) {
+			lasAlive = false;
+		}
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -38,15 +41,18 @@ int main()
 				cannon.move(false);
 			}
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-					canLas.push_back(new Laser(point, cannon.getCannonPosition()));
+				if (!lasAlive) {
+					las.setLasPosition(cannon.getCannonPosition());
+					lasAlive = true;
+				}
 			}
 		}
+		las.move();
 		
 		window.clear();
 		cannon.display(window);
-		for (int i = 0; i < canLas.size(); i++) {
-			canLas.at(i)->display(window);
-			canLas.at(i)->move();
+		if (lasAlive) {
+			las.display(window);
 		}
 		window.display();
 	}

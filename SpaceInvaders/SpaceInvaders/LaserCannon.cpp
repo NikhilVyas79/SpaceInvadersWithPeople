@@ -12,10 +12,10 @@ LaserCannon::~LaserCannon() {
 }
 
 void LaserCannon::move(bool direc) {
-	if (direc) {
+	if (direc&&t.getPosition().x-8>12) {
 		t.move(-8, 0);
 	}
-	else {
+	if(t.getPosition().x<1100&&!direc) {
 		t.move(8, 0);
 	}
 }

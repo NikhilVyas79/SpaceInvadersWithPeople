@@ -159,21 +159,28 @@
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
     <ClCompile Include="Bunker.cpp" />
+    <ClCompile Include="DisplayState.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Laser.cpp" />
     <ClCompile Include="LaserCannon.cpp" />
     <ClCompile Include="MysteryAlien.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="SpaceInvaders.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
+    <ClCompile Include="StateManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alien.h" />
     <ClInclude Include="Bunker.h" />
+    <ClInclude Include="DisplayState.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="LaserCannon.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="MysteryAlien.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="StartMenu.h" />
+    <ClInclude Include="StateManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
