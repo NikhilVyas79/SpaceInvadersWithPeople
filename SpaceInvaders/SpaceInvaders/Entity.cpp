@@ -1,7 +1,11 @@
 #include "Entity.h"
 
 
-Entity::Entity() {
+Entity::Entity()
+{
+}
+
+Entity::Entity(sf::Texture text) : Object(text) {
 
 }
 

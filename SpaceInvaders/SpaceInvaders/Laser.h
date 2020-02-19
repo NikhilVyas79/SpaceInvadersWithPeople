@@ -5,14 +5,16 @@
 class Laser : public Entity
 {
 public:
-	Laser(int);
+	Laser();
+	Laser(sf::Texture*, sf::Vector2f);
 	~Laser();
 	bool checkForCollision();
-	void display();
+	void display(sf::RenderWindow &);
 	void move();
 
 private:
 	bool alive;
 	int team;
+	sf::Sprite las;
 };
 

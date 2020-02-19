@@ -1,7 +1,7 @@
 #include "MysteryAlien.h"
 
 
-MysteryAlien::MysteryAlien() {
+MysteryAlien::MysteryAlien(sf::Texture text): Alien(text) {
 
 }
 

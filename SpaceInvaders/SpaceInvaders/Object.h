@@ -7,6 +7,7 @@ class Object
 {
 public:
 	Object();
+	Object(sf::Texture);
 	~Object();
 	virtual void draw();
 	void setTeam();

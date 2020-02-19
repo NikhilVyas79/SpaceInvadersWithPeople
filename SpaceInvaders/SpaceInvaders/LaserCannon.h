@@ -5,14 +5,14 @@
 class LaserCannon : public Entity
 {
 public:
-	LaserCannon();
+	LaserCannon(sf::Texture *);
 	~LaserCannon();
-	void move();
-	bool checkForShoot();
-	void display();
-
+	void move(bool);
+	void display(sf::RenderWindow &);
+	sf::Vector2f getCannonPosition();
 private:
 	bool alive;
 	int team=2;
+	sf::Sprite t;
 };
 

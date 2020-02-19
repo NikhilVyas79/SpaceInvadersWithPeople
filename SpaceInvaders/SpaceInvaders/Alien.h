@@ -5,7 +5,7 @@
 class Alien : public Entity
 {
 public:
-	Alien();
+	Alien(sf::Texture);
 	~Alien();
 	void display();
 	void animation();
@@ -16,5 +16,6 @@ public:
 private:
 	bool alive;
 	int team=1;
+	sf::RenderWindow window;
 };
 

@@ -1,6 +1,6 @@
 #include "Alien.h"
 
-Alien::Alien() {
+Alien::Alien(sf::Texture text) : Entity(text) {
 
 }
 

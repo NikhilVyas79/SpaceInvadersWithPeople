@@ -1,7 +1,11 @@
 #include "Object.h"
 
-Object::Object() {
+Object::Object()
+{
+}
 
+Object::Object(sf::Texture text) {
+	spriteSheet = text;
 }
 
 Object::~Object() {

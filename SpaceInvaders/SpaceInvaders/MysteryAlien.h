@@ -5,7 +5,7 @@
 class MysteryAlien : public Alien
 {
 public:
-	MysteryAlien();
+	MysteryAlien(sf::Texture);
 	~MysteryAlien();
 	void display();
 	void animation();
@@ -13,5 +13,6 @@ public:
 private:
 	bool alive;
 	int team=1;
+	sf::RenderWindow window;
 };
 

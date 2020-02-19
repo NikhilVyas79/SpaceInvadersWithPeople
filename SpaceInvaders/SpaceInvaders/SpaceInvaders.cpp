@@ -13,13 +13,16 @@
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(600, 600), "SFML works!");
-	//The file is 212 X 152
-	//Alien(1,1) is at (0,0,60,50)
+	sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
+
 	sf::Texture texture;
-	texture.loadFromFile("SpriteSheet.jpg", sf::IntRect(0,0,60, 50));
-	sf::Sprite sprite;
-	sprite.setTexture(texture);
+	texture.loadFromFile("SpriteSheet.jpg");
+	sf::Texture* point = &texture;
+	std::vector<Laser*> canLas;
+	int x = 0;
+	Object obj(texture);
+	LaserCannon cannon(point);
+
 
 	while (window.isOpen())
 	{
@@ -28,10 +31,23 @@ int main()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+				cannon.move(true);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+				cannon.move(false);
+			}
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+					canLas.push_back(new Laser(point, cannon.getCannonPosition()));
+			}
 		}
-
+		
 		window.clear();
-		window.draw(sprite);
+		cannon.display(window);
+		for (int i = 0; i < canLas.size(); i++) {
+			canLas.at(i)->display(window);
+			canLas.at(i)->move();
+		}
 		window.display();
 	}
 

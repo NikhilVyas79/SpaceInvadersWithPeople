@@ -1,6 +1,6 @@
 #include "Bunker.h"
 
-Bunker::Bunker() {
+Bunker::Bunker(sf::Texture text) : Object(text){
 
 }
 
